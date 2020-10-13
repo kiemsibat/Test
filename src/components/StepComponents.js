@@ -9,7 +9,7 @@ import SelectComponent from "./SelectMeal";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import SelectRestaurant from "./SelectRestaurant";
 import swal from 'sweetalert';
-
+import faker from 'faker'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,6 +33,7 @@ export default function HorizontalLabelPositionBelowStepper() {
   const [number, setNumber] = useState(1);
   const [restaurant, setRestaurant] = useState("");
   const [serving, setServing] = useState(1);
+  const[dish,setDish] = useState([]);
 
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -57,8 +58,7 @@ export default function HorizontalLabelPositionBelowStepper() {
         icon: "success",
         button: "OK",
       }
-      
-      );
+      )
     }
   }
   const handleBack = () => {
@@ -71,7 +71,11 @@ export default function HorizontalLabelPositionBelowStepper() {
   function getStepContent(stepIndex) {
 
     const handleAddDish = () => {
-      console.log("add dish");
+      const random = faker.address.zipCode();
+      const randomDish = `Dish ${random}`;
+      const newList = [...dish];
+      newList.push(randomDish)
+      setDish(newList);
     };
 
     const handleChangeNumber = (e) => {
@@ -132,13 +136,17 @@ export default function HorizontalLabelPositionBelowStepper() {
         return (
           <>
             <div style={{ display: "flex" }}>
-              <div style={{ fontWeight: "bold", marginLeft: "550px" }}>
+              <div style={{ fontWeight: "bold", marginLeft: "550px",marginBottom:'30px' }}>
                 <div> Please Select a Dish</div>
-                <SelectComponent title="" />
                 <AddCircleOutlineIcon
                   style={{ cursor: "pointer" }}
                   onClick={handleAddDish}
                 />
+              {dish.map(item => {
+                return(
+                <div>{item}</div>
+                )
+              })}
               </div>
               <div
                 style={{
