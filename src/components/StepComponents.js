@@ -7,207 +7,9 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import SelectComponent from "./SelectMeal";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
-import SelectRestaurant from './SelectRestaurant'
-const data = [
-  {
-    "id": 1,
-    "name": "Chicken Burger",
-    "restaurant": "Mc Donalds",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 2,
-    "name": "Ham Burger",
-    "restaurant": "Mc Donalds",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 3,
-    "name": "Cheese Burger",
-    "restaurant": "Mc Donalds",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 4,
-    "name": "Fries",
-    "restaurant": "Mc Donalds",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 5,
-    "name": "Egg Muffin",
-    "restaurant": "Mc Donalds",
-    "availableMeals": ["breakfast"]
-  },
-  {
-    "id": 6,
-    "name": "Burrito",
-    "restaurant": "Taco Bell",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 7,
-    "name": "Tacos",
-    "restaurant": "Taco Bell",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 8,
-    "name": "Quesadilla",
-    "restaurant": "Taco Bell",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 9,
-    "name": "Steak",
-    "restaurant": "BBQ Hut",
-    "availableMeals": ["dinner"]
-  },
-  {
-    "id": 10,
-    "name": "Yakitori",
-    "restaurant": "BBQ Hut",
-    "availableMeals": ["dinner"]
-  },
-  {
-    "id": 11,
-    "name": "Nankotsu",
-    "restaurant": "BBQ Hut",
-    "availableMeals": ["dinner"]
-  },
-  {
-    "id": 12,
-    "name": "Piman",
-    "restaurant": "BBQ Hut",
-    "availableMeals": ["dinner"]
-  },
-  {
-    "id": 13,
-    "name": "Vegan Bento",
-    "restaurant": "Vege Deli",
-    "availableMeals": ["lunch"]
-  },
-  {
-    "id": 14,
-    "name": "Coleslaw Sandwich",
-    "restaurant": "Vege Deli",
-    "availableMeals": ["breakfast"]
-  },
-  {
-    "id": 15,
-    "name": "Grilled Sandwich",
-    "restaurant": "Vege Deli",
-    "availableMeals": ["breakfast"]
-  },
-  {
-    "id": 16,
-    "name": "Veg. Salad",
-    "restaurant": "Vege Deli",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 17,
-    "name": "Fruit Salad",
-    "restaurant": "Vege Deli",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 18,
-    "name": "Corn Soup",
-    "restaurant": "Vege Deli",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 19,
-    "name": "Tomato Soup",
-    "restaurant": "Vege Deli",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 20,
-    "name": "Minestrone Soup",
-    "restaurant": "Vege Deli",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 21,
-    "name": "Pepperoni Pizza",
-    "restaurant": "Pizzeria",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 22,
-    "name": "Pepperoni Pizza",
-    "restaurant": "Pizzeria",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 23,
-    "name": "Hawaiian Pizza",
-    "restaurant": "Pizzeria",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 24,
-    "name": "Seafood Pizza",
-    "restaurant": "Pizzeria",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 25,
-    "name": "Deep Dish Pizza",
-    "restaurant": "Pizzeria",
-    "availableMeals": ["dinner"]
-  },
-  {
-    "id": 26,
-    "name": "Chow Mein",
-    "restaurant": "Panda Express",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 27,
-    "name": "Mapo Tofu",
-    "restaurant": "Panda Express",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 28,
-    "name": "Kung Pao",
-    "restaurant": "Panda Express",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 29,
-    "name": "Wontons",
-    "restaurant": "Panda Express",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 30,
-    "name": "Garlic Bread",
-    "restaurant": "Olive Garden",
-    "availableMeals": ["breakfast", "lunch", "dinner"]
-  },
-  {
-    "id": 31,
-    "name": "Ravioli",
-    "restaurant": "Olive Garden",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 32,
-    "name": "Rigatoni Spaghetti",
-    "restaurant": "Olive Garden",
-    "availableMeals": ["lunch", "dinner"]
-  },
-  {
-    "id": 33,
-    "name": "Fettucine Pasta",
-    "restaurant": "Olive Garden",
-    "availableMeals": ["lunch", "dinner"]
-  }
-]
+import SelectRestaurant from "./SelectRestaurant";
+import swal from 'sweetalert';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -230,7 +32,7 @@ export default function HorizontalLabelPositionBelowStepper() {
   const [meal, setMeal] = useState("");
   const [number, setNumber] = useState(1);
   const [restaurant, setRestaurant] = useState("");
-  const[serving, setServing] = useState(0);
+  const [serving, setServing] = useState(1);
 
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -240,6 +42,25 @@ export default function HorizontalLabelPositionBelowStepper() {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
+  const handleSubmit = () => {
+    if(meal === '' || number === 0 || restaurant === ''){
+      swal({
+        title: "Warning!",
+        text: "Please check your bill",
+        icon: "warning",
+        button: "Understand",
+      });
+    }else{
+      swal({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success",
+        button: "OK",
+      }
+      
+      );
+    }
+  }
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
@@ -248,27 +69,27 @@ export default function HorizontalLabelPositionBelowStepper() {
     setActiveStep(0);
   };
   function getStepContent(stepIndex) {
+
     const handleAddDish = () => {
       console.log("add dish");
     };
+
     const handleChangeNumber = (e) => {
       setNumber(e.target.value);
-      console.log('handleChangeNumber :',e.target.value)
-    }
+      console.log("handleChangeNumber :", e.target.value);
+    };
 
     const handleChangeServing = (e) => {
       setServing(e.target.value);
-      console.log('handleChangeServing :',e.target.value)
-    }
+      console.log("handleChangeServing :", e.target.value);
+    };
 
     const handleSelect = (data) => {
-      setMeal(data)
-
-    }
+      setMeal(data);
+    };
     const getData = (data) => {
       setRestaurant(data);
-      // console.log(data);
-    }
+    };
     switch (stepIndex) {
       case 0:
         return (
@@ -276,7 +97,11 @@ export default function HorizontalLabelPositionBelowStepper() {
             <div style={{ marginLeft: "-50px", fontWeight: "bold" }}>
               Please Select a meal
             </div>
-            <SelectComponent  handleSelect={handleSelect} title="" style={{ marginLeft: "-50px" }} />
+            <SelectComponent
+              handleSelect={handleSelect}
+              title=""
+              style={{ marginLeft: "-50px" }}
+            />
             <div
               style={{
                 marginLeft: "30px",
@@ -296,7 +121,11 @@ export default function HorizontalLabelPositionBelowStepper() {
             <div style={{ marginLeft: "-50px", fontWeight: "bold" }}>
               Please Select a Restaurant
             </div>
-            <SelectRestaurant getData={getData} title="" style={{ marginLeft: "-50px" }} />
+            <SelectRestaurant
+              getData={getData}
+              title=""
+              style={{ marginLeft: "-50px" }}
+            />
           </>
         );
       case 2:
@@ -331,17 +160,18 @@ export default function HorizontalLabelPositionBelowStepper() {
           </>
         );
       case 3:
-              return <>
-              <div>Meal : {meal} </div>
-              <div>No. of People : {number}</div>
-              <div>Restaurant : {restaurant} </div>
-              <div>Dishes : A</div>  
-              </>;
+        return (
+          <>
+            <div>Meal : {meal} </div>
+            <div>No. of People : {number}</div>
+            <div>Restaurant : {restaurant} </div>
+            <div>Dishes : A</div>
+          </>
+        );
       default:
         return "Unknown stepIndex";
     }
   }
-  // console.log(number);
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep} alternativeLabel>
@@ -372,7 +202,7 @@ export default function HorizontalLabelPositionBelowStepper() {
               >
                 Back
               </Button>
-              <Button variant="contained" color="primary" onClick={handleNext}>
+              <Button variant="contained" color="primary" onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext  }>
                 {activeStep === steps.length - 1 ? "Submit" : "Next"}
               </Button>
             </div>

@@ -219,13 +219,15 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleSelect({ getData }) {
   const classes = useStyles();
   const [age, setAge] = React.useState("");
+  
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+  
   const changeText = (restaurant) => {
-    // console.log(restaurant);
     getData(restaurant);
   };
+
   return (
     <div>
       <FormControl className={classes.formControl}>
