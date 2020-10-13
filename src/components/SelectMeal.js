@@ -216,7 +216,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleSelect({title}) {
+export default function SimpleSelect({title,handleSelect}) {
   const classes = useStyles();
   const [age, setAge] = React.useState('');
   const handleChange = (event) => {
@@ -238,6 +238,7 @@ export default function SimpleSelect({title}) {
           className={classes.selectEmpty}
         >
           {data.map(({id,name}) => {
+            handleSelect(name)
             return(
             <MenuItem value={id}>{name}</MenuItem>
             )

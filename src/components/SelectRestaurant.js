@@ -222,7 +222,9 @@ export default function SimpleSelect({title}) {
   const handleChange = (event) => {
     setAge(event.target.value);
   };
-
+const changeText = (restaurant) => {
+  console.log(restaurant);
+}
   return (
     <div>
       <FormControl className={classes.formControl}>
@@ -239,7 +241,7 @@ export default function SimpleSelect({title}) {
         >
           { data.map(({id,restaurant}) => {
             return(
-            <MenuItem value={id}>{restaurant}</MenuItem>
+            <MenuItem onClick={() =>changeText(restaurant)} value={id}>{restaurant}</MenuItem>
             )
           })}
         </Select>

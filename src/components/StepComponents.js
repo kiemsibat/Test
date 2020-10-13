@@ -260,6 +260,11 @@ export default function HorizontalLabelPositionBelowStepper() {
       setServing(e.target.value);
       console.log('handleChangeServing :',e.target.value)
     }
+
+    const handleSelect = (data) => {
+      setMeal(data);
+      // console.log(data);
+    }
     switch (stepIndex) {
       case 0:
         return (
@@ -267,7 +272,7 @@ export default function HorizontalLabelPositionBelowStepper() {
             <div style={{ marginLeft: "-50px", fontWeight: "bold" }}>
               Please Select a meal
             </div>
-            <SelectComponent title="" style={{ marginLeft: "-50px" }} />
+            <SelectComponent onClick={() => handleSelect} handleSelect={handleSelect} title="" style={{ marginLeft: "-50px" }} />
             <div
               style={{
                 marginLeft: "30px",
