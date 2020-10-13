@@ -262,12 +262,12 @@ export default function HorizontalLabelPositionBelowStepper() {
     }
 
     const handleSelect = (data) => {
-      setMeal(data);
-      console.log(data);
+      setMeal(data)
+
     }
     const getData = (data) => {
       setRestaurant(data);
-      console.log(data);
+      // console.log(data);
     }
     switch (stepIndex) {
       case 0:
@@ -331,7 +331,12 @@ export default function HorizontalLabelPositionBelowStepper() {
           </>
         );
       case 3:
-              return <>{serving}{number}</>;
+              return <>
+              <div>Meal : {meal} </div>
+              <div>No. of People : {number}</div>
+              <div>Restaurant : {restaurant} </div>
+              <div>Dishes : A</div>  
+              </>;
       default:
         return "Unknown stepIndex";
     }
@@ -368,7 +373,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                 Back
               </Button>
               <Button variant="contained" color="primary" onClick={handleNext}>
-                {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                {activeStep === steps.length - 1 ? "Submit" : "Next"}
               </Button>
             </div>
           </div>
