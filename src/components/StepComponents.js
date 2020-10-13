@@ -94,6 +94,12 @@ export default function HorizontalLabelPositionBelowStepper() {
     const getData = (data) => {
       setRestaurant(data);
     };
+
+    const listDish = dish.map(item => {
+      return(
+      <div>{item}</div>
+      )
+    })
     switch (stepIndex) {
       case 0:
         return (
@@ -170,10 +176,10 @@ export default function HorizontalLabelPositionBelowStepper() {
       case 3:
         return (
           <>
-            <div>Meal : {meal} </div>
-            <div>No. of People : {number}</div>
-            <div>Restaurant : {restaurant} </div>
-            <div>Dishes : A</div>
+            <div><strong>Meal :</strong>: {meal} </div>
+            <div><strong>No. of People :</strong> {number}</div>
+            <div><strong>Restaurant : </strong>{restaurant} </div>
+            <div><strong>Dishes :</strong> {listDish}</div>
           </>
         );
       default:
